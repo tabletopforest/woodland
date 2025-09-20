@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ROOTが遊べるボードゲームカフェMAP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<style>
+		#map {
+			width: 100%;
+			height: 500px; /* 高さ調整可 */
+			border-radius: 8px;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+					<span class="title">ROOTだけ遊び尽くす会</span>
+				</a>
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="whats.html">What's ROOT?</a></li>
+				<li><a href="information.html">Information</a></li>
+				<li><a href="event.html">Event</a></li>
+				<li><a href="youtube.html">YouTube</a></li>
+				<li><a href="note.html">note</a></li>
+				<li><a href="discord.html">Discord</a></li>
+				<li><a href="playspace.html">Play Sapce</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="Privacy.html">Privacy Policy</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<br><br>
+				<h1>Play Space</h1>
+				<h2>ROOTが遊べるボードゲームカフェMAP</h2>
+				<p>
+					ROOTが遊べるボードゲームカフェの地図です。掲載は店舗の許可をいただいたもののみです。<br>
+					掲載希望店舗募集中！
+				</p>
+				<div id="map"></div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="copyright">
+					<li>Copyright &copy; 2025 ROOTだけ遊び尽くす会. All Rights Reserved.</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!-- Google Maps API -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+	<script>
+		function initMap() {
+			// 初期表示の中心（例: 東京駅）
+			const center = { lat: 35.6812, lng: 139.7671 };
+
+			// 地図を作成
+			const map = new google.maps.Map(document.getElementById("map"), {
+				zoom: 12,
+				center: center,
+			});
+
+			// 店舗リスト（サンプル：ここに許可済み店舗を追加）
+			const shops = [
+				{
+					name: "ボードゲームカフェA",
+					position: { lat: 35.6895, lng: 139.6917 },
+					url: "https://example.com/shopA"
+				},
+				{
+					name: "ボードゲームカフェB",
+					position: { lat: 35.6735, lng: 139.7100 },
+					url: "https://example.com/shopB"
+				}
+			];
+
+			// 各店舗にピンを立てる
+			shops.forEach(shop => {
+				const marker = new google.maps.Marker({
+					position: shop.position,
+					map: map,
+					title: shop.name,
+				});
+
+				const info = new google.maps.InfoWindow({
+					content: `<h3>${shop.name}</h3><a href="${shop.url}" target="_blank">店舗ページへ</a>`
+				});
+
+				marker.addListener("click", () => {
+					info.open(map, marker);
+				});
+			});
+		}
+	</script>
+</body>
+</html>
