@@ -211,3 +211,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+
+// スマホでブラウザバックしたときにリロードする
+window.addEventListener("pageshow", function (event) {
+	if (event.persisted) {
+		window.location.reload();
+	}
+});
