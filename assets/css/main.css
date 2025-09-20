@@ -3503,3 +3503,72 @@ body {
 			max-height: none;
 		}
 }
+
+
+/* イベントページ用の2カラム */
+.event-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 20px 0;
+}
+
+.event-left {
+	flex: 1 1 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	.event-left .event-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	}
+
+.event-right {
+	flex: 1 1 65%;
+}
+
+/* スマホ時は縦並び */
+@media screen and (max-width: 768px) {
+	.event-container {
+		flex-direction: column;
+	}
+
+	.event-left, .event-right {
+		flex: 1 1 100%;
+		text-align: center;
+	}
+}
+
+
+/* イベント写真ギャラリー */
+.event-gallery {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	margin: 20px 0;
+}
+
+	.event-gallery img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		object-fit: cover;
+	}
+
+/* スマホ時は2列 → 1列に落ちる */
+@media screen and (max-width: 1024px) {
+	.event-gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.event-gallery {
+		grid-template-columns: 1fr;
+	}
+}
