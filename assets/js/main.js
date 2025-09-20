@@ -182,6 +182,16 @@
 
 			});
 
+	// ブラウザバックで真っ白になる対策
+	window.onunload = function () { }; // ページキャッシュを無効化
+
+	window.addEventListener("pageshow", function (event) {
+		if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+			window.location.reload();
+		}
+	});
+
+
 })(jQuery);
 
 // ページロード時：フェードイン
@@ -210,12 +220,4 @@ document.addEventListener("DOMContentLoaded", function () {
 			}, 800); // CSSの transition と同じ時間
 		});
 	});
-});
-
-
-// スマホでブラウザバックしたときにリロードする
-window.addEventListener("pageshow", function (event) {
-	if (event.persisted) {
-		window.location.reload();
-	}
 });
