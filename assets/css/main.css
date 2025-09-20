@@ -3573,3 +3573,30 @@ body {
 	}
 }
 
+/* キャッチコピー専用の背景画像 */
+header.catchcopy {
+	position: relative;
+	background: url("../../images/header.jpg") no-repeat center center;
+	background-size: cover;
+	color: #fff; /* テキストを白に */
+	text-align: center;
+	padding: 3em 1em; /* 上下に余白 */
+	overflow: hidden; /* はみ出しを隠す */
+}
+
+	/* 背景をうっすら暗くするオーバーレイ */
+	header.catchcopy::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0.4); /* 黒を40%重ねて画像を透かす */
+		z-index: 0;
+	}
+
+	header.catchcopy p {
+		position: relative;
+		z-index: 1; /* テキストを前面に */
+	}
