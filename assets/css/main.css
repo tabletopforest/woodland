@@ -3609,3 +3609,12 @@ header.catchcopy {
 }
 
 
+
+/* Google Maps 左上の「地図」「航空写真」ボタンの文字を中央寄せ */
+.gm-style .gm-control-active,
+.gm-style .gm-fullscreen-control,
+.gm-style .gm-style-mtc div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
