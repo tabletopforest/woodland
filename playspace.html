@@ -40,10 +40,11 @@
 				<li><a href="whats.html">What's ROOT?</a></li>
 				<li><a href="information.html">Information</a></li>
 				<li><a href="event.html">Event</a></li>
+				<li><a href="editions.html">Editions</a></li>
 				<li><a href="youtube.html">YouTube</a></li>
 				<li><a href="note.html">note</a></li>
 				<li><a href="discord.html">Discord</a></li>
-				<li><a href="playspace.html">Play Sapce</a></li>
+				<li><a href="playspace.html">Play Space</a></li>
 				<li><a href="contact.html">Contact</a></li>
 				<li><a href="Privacy.html">Privacy Policy</a></li>
 			</ul>
@@ -117,15 +118,9 @@
 					title: shop.name,
 				});
 
-const info = new google.maps.InfoWindow({
-    content: `
-        <div style="min-width:200px;">
-            <h3>${shop.name}</h3>
-            <p>${shop.comment}</p>
-            <a href="${shop.url}" target="_blank">店舗ページへ</a>
-        </div>
-    `
-});
+				const info = new google.maps.InfoWindow({
+					content: `<h3>${shop.name}</h3><a href="${shop.url}" target="_blank">店舗ページへ</a>`
+				});
 
 				marker.addListener("click", () => {
 					info.open(map, marker);
@@ -135,7 +130,3 @@ const info = new google.maps.InfoWindow({
 	</script>
 </body>
 </html>
-
-
-
-

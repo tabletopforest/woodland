@@ -2715,10 +2715,10 @@ button,
     background-color: #7edc91;   /* stronger pastel green */
 }
 
-/* 4. YouTube → グレー（少し濃いめのライトグレー） */
-.tiles article.style4 > .image:before {
-    background-color: #b0b0b0;   /* stronger light gray */
-}
+			/* 4. YouTube → グレー（/* 落ち着いた濃いグレー */
+			.tiles article.style4 > .image:before {
+				background-color: #424242; /* stronger gray */
+			}
 
 /* 5. note → 黄色（明るめパステルイエロー） */
 .tiles article.style5 > .image:before {
@@ -2743,6 +2743,10 @@ button,
 			/* 9. Privacy Policy → 赤（落ち着いたパステルレッド） */
 			.tiles article.style9 > .image:before {
 				background-color: #e57373; /* stronger pastel red */
+			}
+			/* 9. Privacy Policy → グレー（少し濃いめのライトグレー） */
+			.tiles article.style10 > .image:before {
+				background-color: #b0b0b0; /* stronger light gray */
 			}
 
 
@@ -3595,5 +3599,13 @@ header.catchcopy {
 		position: relative;
 		z-index: 1; /* テキストを前面に */
 	}
+
+/* Google Maps コントロールの文字位置を中央揃えに修正 */
+.gm-style .gmnoprint div,
+.gm-style .gm-control-active div {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
 
 
