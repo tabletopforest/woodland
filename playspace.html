@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	<style>
 		#map {
@@ -118,9 +119,15 @@
 					title: shop.name,
 				});
 
-				const info = new google.maps.InfoWindow({
-					content: `<h3>${shop.name}</h3><a href="${shop.url}" target="_blank">店舗ページへ</a>`
-				});
+                const info = new google.maps.InfoWindow({
+                    content: `
+        <div style="min-width:200px;">
+            <h3>${shop.name}</h3>
+            <p>${shop.comment}</p>
+            <a href="${shop.url}" target="_blank">店舗ページへ</a>
+        </div>
+    `
+                });
 
 				marker.addListener("click", () => {
 					info.open(map, marker);
