@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tabletopforest.github.io/woodland/sitemap.xml
